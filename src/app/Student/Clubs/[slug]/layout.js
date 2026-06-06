@@ -13,7 +13,7 @@ const Layout = async ({ children, params }) => {
   return (
     <ClubProvider club={club}>
       <div className="w-full">
-        <div className="mx-auto w-full max-w-7xl px-4 py-8">
+        <div className="mx-auto w-full max-w-8xl px-4 py-8">
           <div className="grid gap-6 md:grid-cols-[250px_1fr] lg:grid-cols-[300px_1fr]">
             <aside className="min-w-0">
               <ClubSidebar />

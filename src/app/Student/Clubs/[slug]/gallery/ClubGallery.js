@@ -1,29 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import {
-  X,
-  ChevronLeft,
-  ChevronRight,
-  Images,
-} from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Images } from "lucide-react";
 
 const ClubGallery = ({ club }) => {
   const [currentIndex, setCurrentIndex] = useState(null);
   const [loadedImages, setLoadedImages] = useState({});
 
-  // Mock data - in production this would come from club?.gallery
-  const gallery = [
-    "https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80",
-    "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=80",
-    "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80",
-    "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&q=80",
-    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
-    "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80",
-    "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
-    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
-    "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&q=80",
-  ];
+  const gallery=club?.gallery;
 
   const handleImageLoad = (index) => {
     setLoadedImages((prev) => ({
@@ -44,11 +28,7 @@ const ClubGallery = ({ club }) => {
 
   const previousImage = (e) => {
     e?.stopPropagation();
-    setCurrentIndex((prev) =>
-      prev === null
-        ? 0
-        : (prev - 1 + gallery.length) % gallery.length
-    );
+    setCurrentIndex((prev) => prev === null ? 0 : (prev - 1 + gallery.length) % gallery.length);
   };
 
   useEffect(() => {
@@ -66,7 +46,6 @@ const ClubGallery = ({ club }) => {
   return (
     <section className="min-h-screen overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
       <div className="border-t-4 border-red-600 p-6">
-        {/* Header with Icon */}
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50">
             <Images className="h-5 w-5 text-red-700" />
@@ -82,7 +61,6 @@ const ClubGallery = ({ club }) => {
           </div>
         </div>
 
-        {/* Counter Badge */}
         <div className="mt-6 flex items-center gap-2 border-b border-gray-200 pb-5">
           <div className="flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-3 py-1">
             <div className="h-2 w-2 rounded-full bg-red-600" />
@@ -92,7 +70,6 @@ const ClubGallery = ({ club }) => {
           </div>
         </div>
 
-        {/* Featured Image */}
         <div className="mt-6">
           <div
             onClick={() => openLightbox(0)}
@@ -113,7 +90,6 @@ const ClubGallery = ({ club }) => {
           </div>
         </div>
 
-        {/* Grid */}
         <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
           {gallery.slice(1).map((image, index) => {
             const actualIndex = index + 1;
@@ -144,37 +120,29 @@ const ClubGallery = ({ club }) => {
         </div>
       </div>
 
-      {/* Lightbox */}
       {currentIndex !== null && (
         <div
           className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
           onClick={closeLightbox}
         >
-          {/* Close */}
           <button
             onClick={closeLightbox}
             className="absolute right-4 top-4 z-50 rounded-full bg-white/10 p-2 text-white backdrop-blur transition hover:bg-white/20"
           >
             <X size={20} />
           </button>
-
-          {/* Prev */}
           <button
             onClick={previousImage}
             className="absolute left-2 md:left-6 z-50 rounded-full bg-white/10 p-2 md:p-3 text-white backdrop-blur transition hover:bg-white/20"
           >
             <ChevronLeft size={24} />
           </button>
-
-          {/* Next */}
           <button
             onClick={nextImage}
             className="absolute right-2 md:right-6 z-50 rounded-full bg-white/10 p-2 md:p-3 text-white backdrop-blur transition hover:bg-white/20"
           >
             <ChevronRight size={24} />
           </button>
-
-          {/* Image */}
           <div
             onClick={(e) => e.stopPropagation()}
             className="relative max-h-[85vh] max-w-[90vw] overflow-hidden rounded-lg"

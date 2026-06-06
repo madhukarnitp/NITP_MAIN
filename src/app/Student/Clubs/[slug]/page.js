@@ -1,7 +1,6 @@
 "use client";
 
 import { useClub } from "./ClubProvider";
-
 import ClubHero from "./ClubHero";
 
 

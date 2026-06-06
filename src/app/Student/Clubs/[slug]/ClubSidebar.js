@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, ChevronDown } from "lucide-react";
 import { useClub } from "./ClubProvider";
-import Clubs from "../../../assets/images/clubs.svg"
+import Clubs from "@/app/assets/images/clubs.svg"
 
 const MobileClubSidebar = ({ navLinks, club }) => {
   const pathname = usePathname();
@@ -80,9 +80,9 @@ const DesktopClubSidebar = ({ navLinks, club }) => {
       <div className="p-6 border-b border-red-200">
         <div className="flex flex-col items-center text-center">
           <img
-            src={club?.logo || Clubs?.src || Clubs}
+            src={ club?.logo || Clubs?.src}
             alt={club?.name || "Club Logo"}
-            className="h-20 w-20 rounded-full border-4 border-white shadow-lg object-cover"
+            className="h-20 w-20 rounded-full object-cover"
           />
 
           <h2 className="mt-4 text-xl font-extrabold text-red-800 tracking-tight">

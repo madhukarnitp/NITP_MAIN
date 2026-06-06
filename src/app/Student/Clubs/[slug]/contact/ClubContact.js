@@ -1,17 +1,6 @@
 "use client";
 
-import {
-  Mail,
-  Globe,
-  MapPin,
-  Phone,
-  Instagram,
-  Linkedin,
-  Youtube,
-  Github,
-  Twitter,
-  MessageCircle,
-} from "lucide-react";
+import {  Mail, Globe, MapPin, Phone, Instagram, Linkedin, Youtube, Github, Twitter, MessageCircle } from "lucide-react";
 
 const ClubContact = ({ club }) => {
   const contacts = [
@@ -100,7 +89,6 @@ const ClubContact = ({ club }) => {
   return (
     <section className="overflow-hidden min-h-screen rounded-2xl border border-gray-200 bg-white shadow-sm">
       <div className="border-t-4 border-red-600 p-6">
-        {/* Header with Icon */}
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-50">
             <Phone className="h-5 w-5 text-red-700" />

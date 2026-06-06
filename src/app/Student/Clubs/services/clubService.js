@@ -1,7 +1,7 @@
 import { cache } from "react";
 import { mapClubData, mapClubsData } from "../utils/clubHelpers";
 
-const BACKEND_API_URL = "https://68c4d9a1-9ebe-4f0d-9a14-b373a4a5fbe2.mock.pstmn.io" ||  process.env.NEXT_PUBLIC_BACKEND_API_URL;
+const BACKEND_API_URL = process.env.NEXT_PUBLIC_BACKEND_API_URL;
 
 const REQUEST_TIMEOUT = 10000; // 10s
 
